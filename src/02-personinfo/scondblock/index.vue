@@ -2,10 +2,38 @@
     import "@/assets/personinfo.css"
     import {ref} from 'vue'
 
+    import portrait01 from '@/assets/images/portrait_01.png'
+    import portrait0101 from '@/assets/images/portrait_01_1.png'
+    import portrait02 from '@/assets/images/portrait_02.png'
+    import portrait0201 from '@/assets/images/portrait_02_1.png'
+    import portrait03 from '@/assets/images/portrait_03.png'
+    import portrait0301 from  '@/assets/images/portrait_03_1.png'
+    import portrait04 from '@/assets/images/portrait_04.png'
+    import portrait0401 from '@/assets/images/portrait_04_1.png'
+    import portrait05 from '@/assets/images/portrait_05.png'
+    import portrait0501 from '@/assets/images/portrait_05_1.png'
+    import portrait06 from '@/assets/images/portrait_06.png'
+    import portrait0601 from '@/assets/images/portrait_06_1.png'
+
+    const imageMap={
+        'portrait_01.png':portrait01,
+        'portrait_01_1.png':portrait0101,
+        'portrait_02.png':portrait02,
+        'portrait_02_1.png':portrait0201,
+        'portrait_03.png':portrait03,
+        'portrait_03_1.png':portrait0301,
+        'portrait_04.png':portrait04,
+        'portrait_04_1.png':portrait0401,
+        'portrait_05.png':portrait05,
+        'portrait_05_1.png':portrait0501,
+        'portrait_06.png':portrait06,
+        'portrait_06_1.png':portrait0601,
+    }
+
     let portraitList = ref([
         {id:1,name:"塞巴斯蒂安",
-        img_url:"/portrait_01.png",
-        hover_img_url:"/portrait_01_1.png",
+        img_url:"portrait_01.png",
+        hover_img_url:"portrait_01_1.png",
         des:"塞巴斯蒂安是一个叛逆的孤独者，住在他父母的地下室。\
         他和玛鲁是同母异父的兄妹，塞巴斯蒂安感觉妹妹得到了所有的关注和崇拜，\
         而他自己却在黑暗中被腐蚀。他常常沉迷于电脑游戏，漫画和科幻小说，\
@@ -14,8 +42,8 @@
         likes:"泪晶、生鱼片"},
 
         {id:2,name:"亚历克斯",
-        img_url:"/portrait_02.png",
-        hover_img_url:"/portrait_02_1.png",
+        img_url:"portrait_02.png",
+        hover_img_url:"portrait_02_1.png",
         des:"亚历克斯喜欢运动，和在海滩溜达。他相当傲慢，\
         对每个人吹嘘他要成为一个专业运动员。他的骄傲自大只是为了掩饰他的自我怀疑吗？\
         或是用他的运动梦想填补他父母的空缺吗？\
@@ -23,8 +51,8 @@
         likes:"完美早餐、鲑鱼晚餐"},
 
         {id:3,name:"山姆",
-        img_url:"/portrait_03.png",
-        hover_img_url:"/portrait_03_1.png",
+        img_url:"portrait_03.png",
+        hover_img_url:"portrait_03_1.png",
         des:"山姆是一个外向、友好、充满青春活力的人。他会弹吉它，还会敲鼓，\
         他想要在写完足够多的歌后就和塞巴斯蒂安一起组建一个乐队。但是，\
         他总是抱有雄心壮志，却不去付诸实践。\
@@ -32,23 +60,23 @@
         likes:"仙人掌果、披萨"},
 
         {id:4,name:"肯特",
-        img_url:"/portrait_04.png",
-        hover_img_url:"/portrait_04_1.png",
+        img_url:"portrait_04.png",
+        hover_img_url:"portrait_04_1.png",
         des:"肯特是一位住在鹈鹕镇的居民。第一年他在军队服役，第二年春天才会回到鹈鹕镇柳巷1号居住。\
         在第一年检查乔迪的床头柜和文森特、山姆的对话会提示肯特的出现。",
         likes:"烤榛子、黄水仙"},
 
         {id:5,name:"玛妮",
-        img_url:"/portrait_05_1.png",
-        hover_img_url:"/portrait_05.png",
+        img_url:"portrait_05_1.png",
+        hover_img_url:"portrait_05.png",
         des:"玛妮是星露谷的居民。她居住在玛妮的牧场。玛妮的牧场位于煤矿森林东北处，靠近鹈鹕镇的西南入口。\
         玛妮在玛妮的牧场经营她自己的商店。玛妮的开店时间是每天上午9:00至下午4:00（周一周二除外，\
         不过这时尽管建筑仍可进入）。她出售动物和动物用品。",
         likes:"钻石、粉红蛋糕"},
 
         {id:6,name:"艾米丽",
-        img_url:"/portrait_06.png",
-        hover_img_url:"/portrait_06_1.png",
+        img_url:"portrait_06.png",
+        hover_img_url:"portrait_06_1.png",
         des:"艾米丽是居住在鹈鹕镇的居民之一。她的家在鹈鹕镇的西南角，\
         位于乔迪家的右方，地址是柳巷2号。大部分时间，\
         她从下午4点开始都在星之果实餐吧工作。艾米丽非常喜爱自己做衣服，\
@@ -56,11 +84,13 @@
         likes:"蓝宝石、蓝宝石"}
     ])
 
+
     const hoverIndex = ref(-1)
 
     // 计算当前显示的图片
     const getImageUrl = (item: any, index: number) => {
-        return hoverIndex.value === index ? item.hover_img_url : item.img_url
+        const imgName = hoverIndex.value === index ? item.hover_img_url : item.img_url
+        return imageMap[imgName as keyof typeof imageMap]
     }
 </script>
 
@@ -78,7 +108,7 @@
                 <ul>
                     <li class="items" v-for="(v,i) in portraitList" :key="v.id">
                         <div class="image" @mouseenter="hoverIndex = i" @mouseleave="hoverIndex = -1">
-                            <img class="item" :src="`/src/assets/images/${getImageUrl(v, i)}`" :alt="v.name"></img>
+                            <img class="item" :src="getImageUrl(v, i)" :alt="v.name"></img>
                         </div>                                   
                         <p class="item des">{{ v.des }}</p>
                         <p class="item name">{{v.name}}</p>
