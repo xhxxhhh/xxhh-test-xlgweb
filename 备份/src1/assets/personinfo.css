@@ -1,0 +1,241 @@
+body{
+    position:relative;      
+}
+body::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("@/assets/images/background_01.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: blur(5px);
+    opacity: 0.3; /* 设置背景图片透明度*/
+    z-index: -1;
+}
+
+
+.first-personinfo .carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 关键：完整显示图片 */
+}
+.first-personinfo .block{
+  box-shadow:1px 1px 10px rgb(116, 124, 137);
+}
+.first-personinfo{
+  position: relative;
+  margin-top: 100px;
+  position:relative;
+    
+}
+.first-personinfo::before{
+  content: '';
+  position: absolute;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  background-color: rgb(98, 226, 226);
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: center;
+  opacity: 0.3;
+}
+
+
+
+.first-personinfo .first-ul{
+  margin-top: 0px;
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    height: 100%; /* 确保ul填满高度 */
+}
+.first-ul li {
+  height: 100%; /* 确保li填满高度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+.second-personinfo .title p{
+  margin:10px;
+  margin-top: 30px;
+  text-align:center;
+  font-size: 3rem;
+  font-family: "楷体";
+  font-weight:600;
+  transition:0.5s;
+}
+.second-personinfo .title:hover{
+  transform:scale(1.2);
+}
+.second-personinfo .en-title{
+  text-align:center;
+  font-size: 1rem;
+  font-family: "楷体";
+  font-weight:600;
+  transition:0.5s;
+}
+.second-personinfo .en-title:hover{
+  transform:scale(1.2);
+}
+
+
+.color-change{
+  background: linear-gradient(100deg,
+   #ff6b6b, #e6bb7b, #4ecdc4, #45b7d1, 
+   #96ceb4, #6b59e5, #7bd0e7
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation:gradientShift 5s ease infinite;
+}
+
+
+
+
+
+.second-personinfo ul{
+
+  margin-right: 10vw;
+  margin-left: 10vw;
+  padding: 5px;
+  list-style: none;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  border:5px solid #8a4a4a;
+  border-collapse: collapse;
+  margin-bottom: 80px;
+}
+
+
+.second-personinfo ul .items{
+  position: relative;
+  margin-bottom: 5px;
+  padding: 5px;;
+  display:grid;
+  grid-template-columns:1fr 3fr;
+  grid-template-rows:2fr 0.4fr;
+  gap:5px;
+  border:5px solid #a85925;
+  border-radius:2.5%;
+  border-collapse: collapse;
+  overflow:hidden;
+  box-shadow: 2px 2px 2px #7797b9;
+}
+.second-personinfo ul .items::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: '';
+  background:linear-gradient(45deg,#32b6d3,#b3e04a);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  backdrop-filter: blur(5px);
+  opacity: 0.3; /* 设置背景图片透明度*/
+  z-index: -1;
+}
+.second-personinfo ul .items .item{
+  overflow:hidden;
+  margin: 1px;
+  text-align: center;
+  font-size: 2vw;
+  color:black;
+  border-radius:2%;
+  box-shadow: 2px 2px 4px #7797b9;
+  padding: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "隶书";
+}
+.second-personinfo ul .items .likes{
+  background-color:transparent;
+  box-shadow: 0 0 0;
+}
+.second-personinfo ul .items .des{
+  padding: 10px;  
+  position:relative;
+}
+.second-personinfo ul .items .des::before{
+  content:'';
+  position:absolute;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  background: #f8f8f8;  
+  opacity:0.5;
+  z-index: -1;
+}
+.second-personinfo ul .items .name{
+  background-color:transparent;
+  box-shadow: 0 0 0;
+  display: flex;
+  font-size: 2.5vw;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  color: #7a3e3e; 
+  transition:0.5s;
+}
+.second-personinfo ul .items .name:hover{
+  transform:scale(1.2)
+}
+.second-personinfo ul .items .image{
+  overflow:hidden;
+  border-radius: 2%;
+  transition: all 0.3s ease;
+}
+.second-personinfo ul .items img{
+  padding: 0px;
+  width:100%;
+  border-radius:3%;
+  transition:0.5s;
+}
+.second-personinfo ul .items img:hover{
+  transform:scale(1.1)
+}
+@media(min-width:1200px){
+  .second-personinfo ul{
+    margin-right: 15vw;
+    margin-left: 15vw;
+  }
+  .second-personinfo ul .items .item{
+    font-size: 1.5vw;
+  }
+  .second-personinfo ul .items .name{
+  font-size: 2vw;
+  }
+}
+@media(min-width:1800px){
+  .second-personinfo ul{
+    margin-right: 20vw;
+    margin-left: 20vw;
+  }
+   .second-personinfo ul .items .item{
+    font-size: 1vw;
+  }
+  .second-personinfo ul .items .name{
+  font-size: 1.5vw;
+  }
+
+}
+
