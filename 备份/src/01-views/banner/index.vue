@@ -9,13 +9,20 @@
         }, 800)
     })
 
+
 </script>
 
 <template>
     <div class="banner">       
         <div class="content">
-            <p class="text" :class="{ 'show': showText }">Welcome!</p>
-            <img src="@/assets/images/banner.png">
+            <p class="text1">Welcome to</p>
+            <p class="text" :class="{ 'show': showText }">My Stardew Valley</p>
+            <!-- <p class="text" :class="{ 'show': showText }">Stardew Valley</p> -->
+            <!-- <img src="@/assets/images/banner.png"> -->
+            <video autoplay muted playsinline id="myv">
+                <source src="@/assets/images/banner_01.mp4" type="video/mp4"/>
+            </video>
+            
         </div>
     </div>
 </template>

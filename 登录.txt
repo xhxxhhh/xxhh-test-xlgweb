@@ -1,0 +1,2 @@
+先进入backend文件夹：cd backend
+然后运行js文件：node server.js
